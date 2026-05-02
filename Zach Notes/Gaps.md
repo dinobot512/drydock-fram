@@ -1,4 +1,3 @@
-
 **1. Whether the information-gain differential is large enough to matter**
 
 The adjacent-field evidence is encouraging but not conclusive for fire. Krause et al.'s empirical results on real environmental monitoring data (temperature, precipitation) showed mutual-information-optimized placement significantly outperformed entropy-based, geometric, and random placement — often achieving comparable prediction accuracy with 2-3× fewer sensors. Mobile sensor networks for GP learning (Xu et al. 2011) showed adaptive sampling outperforms random sampling on advection-diffusion fields, which is structurally similar to fire spread.
