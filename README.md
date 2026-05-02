@@ -8,3 +8,18 @@ Add names:
 * Dieu Truong
 * Rae Kapitonova
 * Jerald Arden Freeman
+* Rutland Harri
+
+## DELIVERABLES
+* research
+* analysis
+* prototype
+* software
+
+## SUBTOPIC REJECTIONS!!!!!
+
+DO NOT DO THESE!!!
+* assisting with flight in bad conditions
+* unmanned logistics
+* wildfire suppression
+* supporting management missions/ operations
