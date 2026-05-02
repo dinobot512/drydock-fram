@@ -6,4 +6,4 @@ Add names:
 
 Dino Filipovic
 Dieu Truong
-Rutland HArris
+Rutland Harris
