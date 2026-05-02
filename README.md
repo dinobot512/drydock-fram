@@ -23,6 +23,18 @@ analysis of existing UTM protocol and why its bad in this case
 simulation environment (clud recommends matlab or discrete-event simulator) modelling crewed and UAS traffic over an evolving perimiter
 proof of concept dynamic geofencing algorithm
 
+### Below from clud
+### Phase I (feasibility & analysis, TRL 1–5)
+Research / Analysis:
+
+A study characterizing the communication blackout zones in representative wildfire terrain (e.g., mountainous canyons in California) and quantifying the latency/dropout impact on UTM deconfliction algorithms
+An analysis of existing UTM protocols (e.g., ASTM F3548 — the UTM standard) and a gap analysis of what breaks when applied to dynamic fire perimeters
+
+Prototype / Software:
+
+A simulation environment (e.g., in MATLAB or a discrete-event simulator) modeling mixed crewed/UAS traffic over a dynamic fire perimeter, demonstrating deconfliction performance as the perimeter evolves
+A proof-of-concept dynamic geofencing algorithm that ingests fire perimeter updates (from IR sensor data) and automatically regenerates operational volumes for active aircraft
+
 ### Phase 2
 Software:
 
