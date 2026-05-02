@@ -2,13 +2,7 @@
 ## Fram
 ## NASA challenge
 
-Add names:
-
-Dino Filipovic
-<<<<<<< HEAD
-
-Dieu Truong
-=======
-Dieu Truong
-Rae Kapitonova
->>>>>>> origin/main
+* Dino Filipovic
+* Dieu Truong
+* Rae Kapitonova
+* Jerald Arden Freeman
