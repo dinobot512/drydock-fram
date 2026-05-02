@@ -1,3 +1,9 @@
+---
+id: Phase 1 - Study Goals
+aliases: []
+tags: []
+---
+
 ##### 1. Terrain & Environment Characterization Study
 
 - **1.1 Wildfire-Prone Terrain Taxonomy**
