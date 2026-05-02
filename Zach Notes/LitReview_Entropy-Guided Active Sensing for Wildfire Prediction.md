@@ -157,6 +157,16 @@ Informative path planning (IPP) for environmental monitoring is a mature robotic
 - **Multi-UAV adaptive IPP** (2023): Extended to cooperative multi-agent settings with constrained communication.
 - **IA-TIGRIS** (Suvarna et al., CMU, 2026): Incremental and adaptive sampling-based planner validated on physical UAV hardware, demonstrating real-world applicability of online IPP.
 
+**Hierarchical architecture:**
+
+1. **Strategic layer (QUBO-suitable):** Select K high-value _regions_ or waypoint clusters from the uncertainty map. This is still a subset selection problem with redundancy penalties — which regions contain the most complementary information? This is where the QUBO formulation is natural.
+2. **Tactical layer (classical):** Given K target regions assigned to K drones, plan the information-maximizing path through each region subject to kinematic and endurance constraints. This is a single-vehicle orienteering problem per drone, solvable with greedy or branch-and-bound methods in real time. The path within each region is where continuous data collection happens.
+3. **Transit optimization:** The path _between_ regions also collects data. Transit segments through high-information areas are preferred over direct routes through low-information areas — a traveling-salesman variant weighted by information gain along edges rather than just distance.
+
+This decomposition preserves the QUBO for what it's good at (combinatorial selection with redundancy structure) and uses classical planning for what QUBO is bad at (sequential, constrained routing).
+
+**What the literature says:** The IPP field (Popović, Rückin, the IA-TIGRIS work from CMU) solves exactly this problem — plan paths that maximize information gain — but uses GP-based acquisition functions with greedy or RL-based planners, not QUBO. Nobody has tried to force IPP into a QUBO formulation, and there's a good reason: it doesn't fit naturally. The one exception would be if you pre-generate a discrete library of candidate paths and then select a non-overlapping subset via QUBO, but generating good candidate paths is itself the hard part.
+
 ### 7.2 Connection to Wildfire
 
 The IPP literature provides methods for adaptively routing sensing platforms to maximize information — but has been applied primarily to static or slowly evolving spatial fields (temperature, pollution, terrain). Wildfire presents a fundamentally harder problem: the field being monitored (fire risk / state variables) evolves rapidly and nonlinearly, and the consequences of measurement are not just scientific but operationally critical. Transferring IPP methods to wildfire requires coupling them with fire spread models that generate the predictive distributions over which information gain is computed.

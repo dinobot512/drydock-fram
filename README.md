@@ -8,7 +8,7 @@ Add names:
 * Dieu Truong
 * Rae Kapitonova
 * Jerald Arden Freeman
-* Rutland Harri
+* Rutland Harris
 
 ## DELIVERABLES
 * research
