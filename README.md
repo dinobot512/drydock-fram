@@ -5,4 +5,4 @@
 * Dino Filipovic
 * Dieu Truong
 * Rae Kapitonova
-Jerald Freeman
+* Jerald Arden Freeman
