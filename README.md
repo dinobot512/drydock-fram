@@ -7,3 +7,4 @@ Add names:
 Dino Filipovic
 Dieu Truong
 Rae Kapitonova
+Jerald Freeman
