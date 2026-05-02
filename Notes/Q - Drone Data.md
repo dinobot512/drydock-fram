@@ -1,4 +1,4 @@
-Q1: What types of data (weather, imaging, etc.) do drones have the enhanced capability of measuring? 
+Q1: What types of data (weather, imaging, etc.) do drones have the enhanced capability of measuring? - somewhat answered in [[Data Collection - Satellite vs Drone]]
 Q2: 
 Q3:
 

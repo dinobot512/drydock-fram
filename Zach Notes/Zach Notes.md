@@ -9,3 +9,13 @@ Consequently, Phase II efforts are strengthened when they include a partnership 
 
 
 
+QUESITONS:
+- multi-modality...? How to combine disparate data? 
+- Characterize computational requirements 
+
+Important data:
+- FMC (fuel moisture content)
+- wind speed / direction / flow
+- Add Myopic replanning
+
+
