@@ -1,12 +1,6 @@
----
-id: Phase 1 - Study Goals
-aliases: []
-tags: []
----
-
 ##### 1. Terrain & Environment Characterization Study
 
-- [ ] **1.1 Wildfire-Prone Terrain Taxonomy**
+- **1.1 Wildfire-Prone Terrain Taxonomy**
     - Categorize terrain types: coastal chaparral, mountain/canyon, high desert plateau, forested ridge, urban-wildland interface
     - For each: typical slope gradients, elevation ranges, vegetation density, historical fire frequency
 - **1.2 Communications Performance by Terrain Type**
