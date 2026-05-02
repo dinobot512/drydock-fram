@@ -13,4 +13,9 @@ QUESITONS:
 - multi-modality...? How to combine disparate data? 
 - Characterize computational requirements 
 
+Important data:
+- FMC (fuel moisture content)
+- wind speed / direction / flow
+- 
+
 
