@@ -7,9 +7,7 @@ We need:
 - Software for modelling
 Consequently, Phase II efforts are strengthened when they include a partnership with a potential end-user of the technology
 
-
-
-QUESITONS:
+QUESTIONS:
 - multi-modality...? How to combine disparate data? 
 - Characterize computational requirements 
 
