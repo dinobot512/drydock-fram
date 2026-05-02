@@ -16,6 +16,6 @@ QUESITONS:
 Important data:
 - FMC (fuel moisture content)
 - wind speed / direction / flow
-- 
+- Add Myopic replanning
 
 
