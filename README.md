@@ -2,9 +2,7 @@
 ## Fram
 ## NASA challenge
 
-Add names:
-
-Dino Filipovic
-Dieu Truong
-Rae Kapitonova
+* Dino Filipovic
+* Dieu Truong
+* Rae Kapitonova
 Jerald Freeman
