@@ -17,5 +17,9 @@ Important data:
 - FMC (fuel moisture content)
 - wind speed / direction / flow
 - Add Myopic replanning
+- Ensure the EnKF update uses localization
+
+Measurements have different densities:
+- FMC cameras can update across swathes of grid tiles while anemometer only gives point data so current tiles. 
 
 
