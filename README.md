@@ -5,5 +5,10 @@
 Add names:
 
 Dino Filipovic
+<<<<<<< HEAD
 
 Dieu Truong
+=======
+Dieu Truong
+Rae Kapitonova
+>>>>>>> origin/main
