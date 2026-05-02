@@ -22,3 +22,27 @@ Focus on important areas to achieve higher spatial and temporal resolution (100m
 
 Accurate geolocation is desired (+-50m)
 
+Interlinked phones and radios with Bluetooth to have wider coverage?
+
+UAS can be deployed at a wildfire system alert
+
+A lot of need for real time fire mapping and communication with firefighters
+
+State of fuels, fire perimeter, weather trends
+
+Low number of false alarms is important
+
+Shorten transmission times
+
+Focused area of a map for firefighters
+
+Data for a central control center needs to be broader
+
+Alerting mechanisms for low bandwidth and loss of sync
+
+Privacy concerns for malicious use of data
+
+Needs to be compatible with existing data infrastructures (e.g. NWCG)
+
+Data from combination of satellites, small drones, and HALE (high-altitude long endurance) drones
+
