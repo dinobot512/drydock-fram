@@ -6,3 +6,6 @@ The Phase I outcome should establish the scientific, technical, and commercial f
 We need:
 - Software for modelling
 Consequently, Phase II efforts are strengthened when they include a partnership with a potential end-user of the technology
+
+
+
