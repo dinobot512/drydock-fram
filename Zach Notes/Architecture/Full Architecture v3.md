@@ -805,3 +805,26 @@ def add_priority_region(polygon, weight) -> None:
 | Orchestrator                | 80       | —                          |
 | Visualization               | 80       | matplotlib                 |
 | **Total**                   | **~865** |                            |
+
+ignis/
+├── __init__.py          # empty
+├── types.py             # shared dataclasses
+├── config.py            # constants + fuel params
+├── utils.py             # UTM projection, distances, thinning
+├── terrain.py           # LANDFIRE loader
+├── gp.py                # GP prior + conditional variance
+├── fire_engine.py       # Rothermel CA + ensemble
+├── information.py       # sensitivity + info field computation
+├── selectors/
+│   ├── __init__.py
+│   ├── greedy.py
+│   ├── qubo.py
+│   └── baselines.py
+├── assimilation.py      # EnKF + observation source
+├── orchestrator.py      # cycle loop
+├── evaluation.py        # counterfactual comparison
+└── visualization.py     # plots
+
+scripts/
+├── run_cycle.py         # python -m scripts.run_cycle
+└── run_comparison.py    # python -m scripts.run_comparison
