@@ -787,21 +787,21 @@ def add_priority_region(polygon, weight) -> None:
 
 ## 8. Code Estimate
 
-|Component|Lines|Dependencies|
-|---|---|---|
-|Data types|80|numpy|
-|Terrain loader|30|landfire, rasterio|
-|GP prior|60|scikit-learn|
-|Correlated field generation|20|numpy (FFT)|
-|Fire engine (Rothermel CA)|130|numpy (or pytorch for GPU)|
-|Information field|40|numpy|
-|Greedy selector|50|numpy|
-|QUBO selector|100|dwave-ocean-sdk|
-|Baselines|15|numpy|
-|Evaluator|60|numpy|
-|EnKF|60|numpy|
-|Path planner|40|numpy|
-|Observation sim|20|numpy|
-|Orchestrator|80|—|
-|Visualization|80|matplotlib|
-|**Total**|**~865**||
+| Component                   | Lines    | Dependencies               |
+| --------------------------- | -------- | -------------------------- |
+| Data types                  | 80       | numpy                      |
+| Terrain loader              | 30       | landfire, rasterio         |
+| GP prior                    | 60       | scikit-learn               |
+| Correlated field generation | 20       | numpy (FFT)                |
+| Fire engine (Rothermel CA)  | 130      | numpy (or pytorch for GPU) |
+| Information field           | 40       | numpy                      |
+| Greedy selector             | 50       | numpy                      |
+| QUBO selector               | 100      | dwave-ocean-sdk            |
+| Baselines                   | 15       | numpy                      |
+| Evaluator                   | 60       | numpy                      |
+| EnKF                        | 60       | numpy                      |
+| Path planner                | 40       | numpy                      |
+| Observation sim             | 20       | numpy                      |
+| Orchestrator                | 80       | —                          |
+| Visualization               | 80       | matplotlib                 |
+| **Total**                   | **~865** |                            |
