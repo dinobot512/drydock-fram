@@ -31,3 +31,10 @@ https://arxiv.org/pdf/2508.16761
 2. NASA PAMS
 https://ntrs.nasa.gov/api/citations/20250005969/downloads/20250005969_Aviation2025.pdf
 - field test demonstrated feasibility of coordinated drone operations (~90% transmission success rate) but needs refining to improve connectivity, ground station management, and decrease latency.
+
+
+FIRE SPREAD MODEL
+
+C2FK
+https://github.com/fire2a/C2FK
+
