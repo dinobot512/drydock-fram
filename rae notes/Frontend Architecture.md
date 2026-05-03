@@ -38,13 +38,53 @@ The drones, ground crew radios, and aircraft all have radios that are constantly
 
 
 
-Drone Architecture:
+-Drone Architecture-
 
 Offline Operations:
 - stores (most recent) map containing current fire location, spread prediction
 - stores (most recent) adjacent drone node locations 
+	- stores routing table, which lists all the nodes it is connected to and all the nodes those are connected to - this allows to send information through most efficient path
+- stores (most recent) assigned instructions and/or movement path & follows it
 - records data (fire edge location, humidity, wind speed) with timestamp and location coordinates
 - creates a queue of data to be shared with other network nodes, assigns different priorities to different data
+- sends out continuous signal to search for nodes nearby
+
+
+Mesh operations (when a connection to one or modes nodes is established):
+- send data to adjacent nodes according to queue priority
+- update routing table
+- receive data from adjacent nodes
+- look out for any override instructions from manned aircraft nodes
+- modify path to avoid intersecting manned aircraft nodes
+- avoid other UAS nodes
+
+
+Online Operations:
+- share data with control center, receive instructions
+- sync all known information across the network
+- implement algorithm to choose which nodes have priority in overriding data over other nodes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
