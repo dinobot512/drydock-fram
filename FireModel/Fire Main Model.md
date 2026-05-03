@@ -73,10 +73,11 @@ Each fuel model specifies these parameters. LANDFIRE provides a fuel model ID pe
 
 **From terrain (LANDFIRE DEM, static):**
 
-|Parameter|Symbol|Units|Source|
-|---|---|---|---|
-|Slope steepness|tan(φ)|dimensionless|Computed from DEM|
-|Aspect|A|degrees|Computed from DEM|
+| Parameter       | Symbol | Units         | Source            |
+| --------------- | ------ | ------------- | ----------------- |
+| Slope steepness | tan(φ) | dimensionless | Computed from DEM |
+| Aspect          | A      | degrees       | Computed from DEM |
+|                 |        |               |                   |
 
 ### Intermediate Computations
 
