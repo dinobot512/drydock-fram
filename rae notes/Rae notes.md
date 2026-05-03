@@ -38,3 +38,6 @@ FIRE SPREAD MODEL
 C2FK
 https://github.com/fire2a/C2FK
 
+C2FSB
+https://github.com/fire2a/C2FSB
+

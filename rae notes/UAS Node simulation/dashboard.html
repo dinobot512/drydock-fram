@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wildfire Tactical Operations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+<style>
+  :root {
+    --bg:        #0a0d0f;
+    --surface:   #111518;
+    --border:    #1e2830;
+    --accent:    #ff6b2b;
+    --accent2:   #00c9a7;
+    --warn:      #f5c842;
+    --danger:    #e03e3e;
+    --text:      #d4dde6;
+    --muted:     #4a5a68;
+    --uas:       #ff6b2b;
+    --ground:    #00c9a7;
+    --mono:      'Share Tech Mono', monospace;
+    --sans:      'Barlow', sans-serif;
+    --cond:      'Barlow Condensed', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 13px;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 48px 1fr;
+    grid-template-columns: 280px 1fr 280px;
+    overflow: hidden;
+  }
+
+  /* ── Header ── */
+  header {
+    grid-column: 1 / -1;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 24px;
+  }
+
+  .logo {
+    font-family: var(--cond);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .logo span { color: var(--text); }
+
+  .header-meta {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .broker-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .broker-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--danger);
+    transition: background 0.4s;
+  }
+
+  .broker-dot.connected { background: var(--accent2); box-shadow: 0 0 6px var(--accent2); }
+
+  .utc-clock {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  /* ── Left panel ── */
+  .panel {
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .panel.right {
+    border-right: none;
+    border-left: 1px solid var(--border);
+  }
+
+  .panel-header {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  /* ── Node cards ── */
+  .node-card {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+    position: relative;
+  }
+
+  .node-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--uas);
+    transition: background 0.3s;
+  }
+
+  .node-card.ground::before { background: var(--ground); }
+  .node-card.offline::before { background: var(--danger); }
+
+  .node-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .node-id {
+    font-family: var(--cond);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .node-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: rgba(255,107,43,0.15);
+    color: var(--uas);
+    border: 1px solid rgba(255,107,43,0.3);
+    letter-spacing: 1px;
+  }
+
+  .node-badge.ground {
+    background: rgba(0,201,167,0.12);
+    color: var(--ground);
+    border-color: rgba(0,201,167,0.3);
+  }
+
+  .node-badge.offline {
+    background: rgba(224,62,62,0.12);
+    color: var(--danger);
+    border-color: rgba(224,62,62,0.3);
+  }
+
+  .node-rows { display: flex; flex-direction: column; gap: 4px; }
+
+  .node-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .node-key { color: var(--muted); font-size: 11px; }
+
+  .node-val {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text);
+  }
+
+  .node-val.warn  { color: var(--warn); }
+  .node-val.danger { color: var(--danger); }
+  .node-val.good  { color: var(--accent2); }
+
+  .staleness {
+    margin-top: 8px;
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .staleness-bar {
+    height: 100%;
+    width: 100%;
+    background: var(--accent2);
+    transition: width 1s linear, background 0.5s;
+    border-radius: 2px;
+  }
+
+  .offline-overlay {
+    display: none;
+    margin-top: 8px;
+    padding: 6px 8px;
+    background: rgba(224,62,62,0.08);
+    border: 1px solid rgba(224,62,62,0.2);
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--danger);
+    letter-spacing: 0.5px;
+  }
+
+  .node-card.offline .offline-overlay { display: block; }
+
+  /* ── Map ── */
+  #map {
+    background: #0d1117;
+    z-index: 0;
+  }
+
+  /* ── Message log ── */
+  .log-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 0;
+  }
+
+  .log-scroll::-webkit-scrollbar { width: 4px; }
+  .log-scroll::-webkit-scrollbar-track { background: transparent; }
+  .log-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .log-entry {
+    padding: 5px 14px;
+    border-bottom: 1px solid rgba(30,40,48,0.5);
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+  .log-time {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+
+  .log-text {
+    font-size: 11px;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .log-text.queue  { color: var(--warn); }
+  .log-text.sync   { color: var(--accent2); }
+  .log-text.danger { color: var(--danger); }
+  .log-text.info   { color: var(--accent); }
+
+  /* ── Queue indicator ── */
+  .queue-box {
+    margin: 10px 14px;
+    padding: 10px 12px;
+    background: rgba(245,200,66,0.06);
+    border: 1px solid rgba(245,200,66,0.2);
+    border-radius: 6px;
+    display: none;
+  }
+
+  .queue-box.visible { display: block; }
+
+  .queue-title {
+    font-family: var(--cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--warn);
+    margin-bottom: 4px;
+  }
+
+  .queue-count {
+    font-family: var(--mono);
+    font-size: 22px;
+    color: var(--warn);
+  }
+
+  .queue-sub {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── Leaflet overrides ── */
+  .leaflet-container { background: #0d1117 !important; }
+  .leaflet-tile { filter: invert(1) hue-rotate(180deg) saturate(0.6) brightness(0.7); }
+
+  .custom-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Pulse ring on markers ── */
+  @keyframes pulse {
+    0%   { transform: scale(1);   opacity: 0.8; }
+    100% { transform: scale(2.2); opacity: 0; }
+  }
+
+  .pulse-ring {
+    position: absolute;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--uas);
+    animation: pulse 1.8s ease-out infinite;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .pulse-ring.ground { border-color: var(--ground); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">WILD<span>FIRE</span> TAC-OPS</div>
+  <div style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:1px;">MESH NETWORK DEMO — EDGE LAYER</div>
+  <div class="header-meta">
+    <div class="broker-status">
+      <div class="broker-dot" id="broker-dot"></div>
+      <span id="broker-label">BROKER DISCONNECTED</span>
+    </div>
+    <div class="utc-clock" id="clock">--:--:-- UTC</div>
+  </div>
+</header>
+
+<!-- Left: Node status -->
+<div class="panel">
+  <div class="panel-header">Active nodes</div>
+
+  <div class="node-card" id="card-UAS-01">
+    <div class="node-header">
+      <div class="node-id">UAS-01</div>
+      <div class="node-badge" id="badge-UAS-01">UAS</div>
+    </div>
+    <div class="node-rows" id="rows-UAS-01">
+      <div class="node-row"><span class="node-key">Status</span><span class="node-val" id="status-UAS-01">Waiting...</span></div>
+      <div class="node-row"><span class="node-key">Position</span><span class="node-val" id="pos-UAS-01">—</span></div>
+      <div class="node-row"><span class="node-key">Altitude</span><span class="node-val" id="alt-UAS-01">—</span></div>
+      <div class="node-row"><span class="node-key">Battery</span><span class="node-val" id="bat-UAS-01">—</span></div>
+      <div class="node-row"><span class="node-key">Thermal</span><span class="node-val" id="therm-UAS-01">—</span></div>
+      <div class="node-row"><span class="node-key">Last seen</span><span class="node-val" id="seen-UAS-01">—</span></div>
+    </div>
+    <div class="staleness"><div class="staleness-bar" id="stale-UAS-01"></div></div>
+    <div class="offline-overlay" id="offline-UAS-01">⚠ NODE OFFLINE — DATA STALE</div>
+  </div>
+
+  <div class="node-card ground" id="card-GROUND-01">
+    <div class="node-header">
+      <div class="node-id">GROUND-01</div>
+      <div class="node-badge ground" id="badge-GROUND-01">GROUND</div>
+    </div>
+    <div class="node-rows" id="rows-GROUND-01">
+      <div class="node-row"><span class="node-key">Status</span><span class="node-val" id="status-GROUND-01">Waiting...</span></div>
+      <div class="node-row"><span class="node-key">Position</span><span class="node-val" id="pos-GROUND-01">—</span></div>
+      <div class="node-row"><span class="node-key">Crew size</span><span class="node-val" id="crew-GROUND-01">—</span></div>
+      <div class="node-row"><span class="node-key">Water</span><span class="node-val" id="water-GROUND-01">—</span></div>
+      <div class="node-row"><span class="node-key">Last seen</span><span class="node-val" id="seen-GROUND-01">—</span></div>
+    </div>
+    <div class="staleness"><div class="staleness-bar ground" id="stale-GROUND-01" style="background:var(--ground)"></div></div>
+    <div class="offline-overlay" id="offline-GROUND-01">⚠ NODE OFFLINE — DATA STALE</div>
+  </div>
+
+  <!-- Queue indicator (shown when UAS is offline and queuing) -->
+  <div class="queue-box" id="queue-box">
+    <div class="queue-title">UAS LOCAL QUEUE</div>
+    <div class="queue-count" id="queue-count">0</div>
+    <div class="queue-sub">messages stored on device, pending sync</div>
+  </div>
+</div>
+
+<!-- Center: Map -->
+<div id="map"></div>
+
+<!-- Right: Message log -->
+<div class="panel right">
+  <div class="panel-header">Event log</div>
+  <div class="log-scroll" id="log"></div>
+</div>
+
+<script>
+// ── Config ────────────────────────────────────────────────────────────────────
+const BROKER_WS = 'ws://localhost:9001'   // Mosquitto WebSocket port
+
+// ── State ─────────────────────────────────────────────────────────────────────
+const nodes = {}
+let queueCount = 0
+
+// ── Clock ─────────────────────────────────────────────────────────────────────
+setInterval(() => {
+  document.getElementById('clock').textContent =
+    new Date().toISOString().slice(11, 19) + ' UTC'
+}, 1000)
+
+// ── Map ───────────────────────────────────────────────────────────────────────
+const map = L.map('map', {
+  center: [36.174, -86.768],
+  zoom: 15,
+  zoomControl: true,
+  attributionControl: false
+})
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
+
+const markers = {}
+
+function makeIcon(nodeId, type, offline) {
+  const color = offline ? '#e03e3e' : (type === 'UAS' ? '#ff6b2b' : '#00c9a7')
+  const label = type === 'UAS' ? '✈' : '👤'
+  return L.divIcon({
+    className: '',
+    html: `<div style="position:relative;width:32px;height:32px;display:flex;align-items:center;justify-content:center;">
+      ${!offline ? `<div class="pulse-ring ${type === 'GROUND' ? 'ground' : ''}"></div>` : ''}
+      <div style="width:28px;height:28px;border-radius:50%;background:${color};display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid rgba(255,255,255,0.2);box-shadow:0 0 10px ${color}66;z-index:1;">${label}</div>
+    </div>`,
+    iconSize: [32, 32],
+    iconAnchor: [16, 16]
+  })
+}
+
+function updateMarker(nodeId, lat, lon, type, offline) {
+  const icon = makeIcon(nodeId, type, offline)
+  if (markers[nodeId]) {
+    markers[nodeId].setLatLng([lat, lon])
+    markers[nodeId].setIcon(icon)
+  } else {
+    markers[nodeId] = L.marker([lat, lon], { icon }).addTo(map)
+      .bindPopup(`<b>${nodeId}</b><br>${type}`)
+  }
+}
+
+// ── Staleness tracker ─────────────────────────────────────────────────────────
+const MAX_STALE_MS = 30000   // 30s = fully stale
+
+setInterval(() => {
+  const now = Date.now()
+  for (const [nodeId, node] of Object.entries(nodes)) {
+    const age = now - node.lastSeen
+    const pct = Math.max(0, 100 - (age / MAX_STALE_MS) * 100)
+    const bar = document.getElementById(`stale-${nodeId}`)
+    if (bar) {
+      bar.style.width = pct + '%'
+      if (pct < 20) bar.style.background = 'var(--danger)'
+      else if (pct < 50) bar.style.background = 'var(--warn)'
+      else bar.style.background = nodeId.startsWith('UAS') ? 'var(--uas)' : 'var(--ground)'
+    }
+    const seenEl = document.getElementById(`seen-${nodeId}`)
+    if (seenEl) seenEl.textContent = age < 60000 ? `${Math.round(age/1000)}s ago` : '>60s ago'
+  }
+}, 1000)
+
+// ── Log ───────────────────────────────────────────────────────────────────────
+function addLog(text, cls = '') {
+  const log = document.getElementById('log')
+  const entry = document.createElement('div')
+  entry.className = 'log-entry'
+  const now = new Date().toISOString().slice(11, 19)
+  entry.innerHTML = `<div class="log-time">${now} UTC</div><div class="log-text ${cls}">${text}</div>`
+  log.prepend(entry)
+  while (log.children.length > 60) log.removeChild(log.lastChild)
+}
+
+// ── Node card update ──────────────────────────────────────────────────────────
+function setNodeOnline(nodeId) {
+  const card = document.getElementById(`card-${nodeId}`)
+  const badge = document.getElementById(`badge-${nodeId}`)
+  const offline = document.getElementById(`offline-${nodeId}`)
+  if (!card) return
+  card.classList.remove('offline')
+  offline.style.display = 'none'
+  if (nodeId.startsWith('UAS')) badge.textContent = 'UAS'
+  else badge.textContent = 'GROUND'
+  badge.classList.remove('offline')
+}
+
+function setNodeOffline(nodeId) {
+  const card = document.getElementById(`card-${nodeId}`)
+  const badge = document.getElementById(`badge-${nodeId}`)
+  const offline = document.getElementById(`offline-${nodeId}`)
+  if (!card) return
+  card.classList.add('offline')
+  offline.style.display = 'block'
+  badge.textContent = 'OFFLINE'
+  badge.classList.add('offline')
+  if (markers[nodeId]) markers[nodeId].setIcon(makeIcon(nodeId, nodes[nodeId]?.type, true))
+}
+
+function updateUASCard(d) {
+  const bat = parseFloat(d.battery_pct)
+  const batEl = document.getElementById('bat-UAS-01')
+  batEl.textContent = bat + '%'
+  batEl.className = 'node-val ' + (bat < 20 ? 'danger' : bat < 40 ? 'warn' : 'good')
+  document.getElementById('pos-UAS-01').textContent = `${d.lat}, ${d.lon}`
+  document.getElementById('alt-UAS-01').textContent = d.alt_m + ' m'
+  document.getElementById('therm-UAS-01').textContent = d.thermal_temp_c + '°C'
+  document.getElementById('status-UAS-01').textContent = 'Online'
+}
+
+function updateGroundCard(d) {
+  document.getElementById('pos-GROUND-01').textContent = `${d.lat}, ${d.lon}`
+  document.getElementById('crew-GROUND-01').textContent = d.crew_size
+  const w = parseFloat(d.water_pct)
+  const wEl = document.getElementById('water-GROUND-01')
+  wEl.textContent = w + '%'
+  wEl.className = 'node-val ' + (w < 20 ? 'danger' : w < 40 ? 'warn' : 'good')
+  document.getElementById('status-GROUND-01').textContent = 'Online'
+}
+
+// ── MQTT ──────────────────────────────────────────────────────────────────────
+const client = mqtt.connect(BROKER_WS, { clientId: 'dashboard-' + Math.random().toString(16).slice(2) })
+
+client.on('connect', () => {
+  document.getElementById('broker-dot').classList.add('connected')
+  document.getElementById('broker-label').textContent = 'BROKER CONNECTED'
+  addLog('Dashboard connected to broker', 'info')
+  client.subscribe('wildfire/nodes/+/telemetry')
+  client.subscribe('wildfire/nodes/+/status')
+  client.subscribe('wildfire/nodes/+/queue')
+})
+
+client.on('disconnect', () => {
+  document.getElementById('broker-dot').classList.remove('connected')
+  document.getElementById('broker-label').textContent = 'BROKER DISCONNECTED'
+  addLog('Lost connection to broker', 'danger')
+})
+
+client.on('message', (topic, message) => {
+  let data
+  try { data = JSON.parse(message.toString()) } catch { return }
+
+  const parts = topic.split('/')
+  const nodeId = parts[2]
+  const msgType = parts[3]
+
+  if (msgType === 'status') {
+    if (data.status === 'online') {
+      setNodeOnline(nodeId)
+      addLog(`${nodeId} came online`, 'sync')
+    } else {
+      setNodeOffline(nodeId)
+      addLog(`${nodeId} went offline — edge node entering queue mode`, 'danger')
+    }
+    return
+  }
+
+  if (msgType === 'queue') {
+    // Pi publishing its local queue count so dashboard can show it
+    queueCount = data.count || 0
+    const box = document.getElementById('queue-box')
+    document.getElementById('queue-count').textContent = queueCount
+    if (queueCount > 0) {
+      box.classList.add('visible')
+      addLog(`UAS-01 queue: ${queueCount} messages stored locally`, 'queue')
+    } else {
+      box.classList.remove('visible')
+      addLog('UAS-01 queue flushed — all messages synced', 'sync')
+    }
+    return
+  }
+
+  if (msgType === 'telemetry') {
+    const wasOffline = nodes[nodeId]?.offline
+    nodes[nodeId] = { ...data, lastSeen: Date.now(), offline: false, type: data.node_type }
+    setNodeOnline(nodeId)
+
+    if (wasOffline) {
+      addLog(`${nodeId} reconnected — syncing queued data`, 'sync')
+    }
+
+    if (nodeId === 'UAS-01') {
+      updateUASCard(data)
+      updateMarker(nodeId, data.lat, data.lon, 'UAS', false)
+      addLog(`UAS-01 · alt=${data.alt_m}m bat=${data.battery_pct}% thermal=${data.thermal_temp_c}°C`)
+    }
+
+    if (nodeId === 'GROUND-01') {
+      updateGroundCard(data)
+      updateMarker(nodeId, data.lat, data.lon, 'GROUND', false)
+      addLog(`GROUND-01 · pos=${data.lat},${data.lon} water=${data.water_pct}%`)
+    }
+  }
+})
+
+// ── Will message handling: detect offline via last-will ───────────────────────
+// (handled via status topic above)
+
+addLog('Tactical dashboard initialised — awaiting nodes', 'info')
+</script>
+</body>
+</html>
