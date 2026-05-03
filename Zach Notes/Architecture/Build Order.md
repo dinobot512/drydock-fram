@@ -37,7 +37,7 @@ Build the thing that everything else consumes.
 
 ---
 
-## Phase 2: GP + Information Field (0.5-1 day)
+## Phase 2: (0.5-1 day)
 
 This is where the science lives.
 
