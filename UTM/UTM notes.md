@@ -31,3 +31,9 @@ this presents an issue as zones declared one hour ago can be considered complete
 > shares space with Air tankers, helicopters, air tactical supervisor
 > traditionally, when these guys go out UAS gets grounded
 > so make UTM good so these guys dont hit you
+
+
+
+Integrate with NWCG
+https://www.nwcg.gov/publications/pms520
+
