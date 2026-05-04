@@ -13,4 +13,23 @@
 - skydioforall@skydio.com
 - gulftronic.info@ga.com
 - privacy@kratosdefense.com
+- john.c.ayers@Vanderbilt.Edu
+- husile.bai@Vanderbilt.Edu
+- ralf.bennartz@vanderbilt.edu
+- huidong.li@Vanderbilt.Edu
+- hiba.baroud@vanderbilt.edu
+- David.Kosson@Vanderbilt.Edu
+- ghiorso@ofm-research.org
+- mgollner@berkeley.edu
+- sal2009ud@berkeley.edu
+- sstephens@berkeley.edu
+- elizabeth.hoover@berkeley.edu
+- jwbart@berkeley.edu
+- kzhill@berkeley.edu
+- zohdi@berkeley.edu
+- jqchambers@berkeley.edu
+- rambrose@ucla.edu
+- afifi@ucla.edu
+- hamidulca@ucla.edu
+- jaraujo@mednet.ucla.edu
 - 
