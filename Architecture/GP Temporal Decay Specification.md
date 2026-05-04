@@ -3,7 +3,6 @@
 ## Problem
 
 Observations accumulate with full weight forever. After 2-5 cycles the GP posterior variance is near-zero everywhere. The information field collapses. Drones stop being routed.
-
 ## Solution
 
 Each observation's influence decays exponentially with age. The GP observation noise grows over time:
