@@ -14,19 +14,19 @@
 - gulftronic.info@ga.com (drone)
 - privacy@kratosdefense.com (drone)
 
-- john.c.ayers@Vanderbilt.Edu
-- husile.bai@Vanderbilt.Edu
-- ralf.bennartz@vanderbilt.edu
-- huidong.li@Vanderbilt.Edu
-- hiba.baroud@vanderbilt.edu
-- David.Kosson@Vanderbilt.Edu
+- john.c.ayers@Vanderbilt.Edu -
+- husile.bai@Vanderbilt.Edu -
+- ralf.bennartz@vanderbilt.edu-
+- huidong.li@Vanderbilt.Edu-
+- hiba.baroud@vanderbilt.edu-
+- David.Kosson@Vanderbilt.Edu-
 - ghiorso@ofm-research.org 
 - mgollner@berkeley.edu
-- sal2009ud@berkeley.edu
+- sal2009ud@berkeley.edu-
 - sstephens@berkeley.edu
-- elizabeth.hoover@berkeley.edu
+- elizabeth.hoover@berkeley.edu-
 - jwbart@berkeley.edu
-- kzhill@berkeley.edu
+- kzhill@berkeley.edu-
 - zohdi@berkeley.edu
 - jqchambers@berkeley.edu
 - rambrose@ucla.edu
@@ -163,3 +163,50 @@ Thank you for your time,
 [Co-author name]
 Vanderbilt University
 [Your .edu email] | [Phone number]
+
+Hi Professor [Name],
+
+I'm a Vanderbilt student working on a NASA-funded research project on aerial coordination and sensing for wildland fire incidents. We're finalizing a deliverable in 24 hours and would genuinely value your perspective before we do.
+
+We are developing software that optimizes the use of automated drones to survey active wildfires, predict fire growth using data-backed simulation models, and improve the flow of information between ground crews and air operations by reducing communication latency and increasing data throughput. We are targeting commercialization and want to pressure-test our assumptions with faculty who have relevant expertise.
+
+A few questions we'd love your thoughts on:
+
+- Does the technical approach sound rigorous and well-grounded to you?
+- Does real-time drone-based sensing and fire growth prediction sound feasible and practically useful?
+- What would your biggest concern be about a system like this moving toward real deployment?
+
+Even a quick reply would be enormously helpful. And if it would be easier to just talk these through, a 10-minute phone call would be incredibly valuable.
+
+Thank you for your time,  
+Rutland Harris  
+Jerald Arden Freeman  
+Vanderbilt University  
+walter.harris@vanderbilt.edu | 615-961-9936
+
+Hi Professor [Name],
+
+I'm a student at Vanderbilt University working on a NASA-funded research project on aerial coordination and sensing for wildland fire incidents. We're finalizing a deliverable in 24 hours and are hoping to ground our assumptions in real academic expertise before we do.
+
+We are developing software that optimizes the use of automated drones to survey active wildfires, predict fire growth using data-backed simulation models, and improve the flow of information between ground crews and air operations by reducing communication latency and increasing data throughput. We are building toward commercialization and want to make sure the technical and operational assumptions underlying our system are sound.
+
+A few questions we'd love your perspective on:
+
+- How accurate is our understanding that communication between ground crews and air operations breaks down significantly during active incidents?
+- What wildfire dynamics or operational realities do engineers most commonly underestimate?
+- Does real-time drone-based sensing and fire growth prediction sound technically feasible and practically useful from your vantage point?
+- What would your biggest concern be about a system like this moving toward real deployment?
+
+Even a quick reply would be enormously helpful. And if it would be easier to just talk these through, a 10-minute phone call would be incredibly valuable.
+
+Thank you for your time,  
+Rutland Harris  
+Jerald Arden Freeman  
+Vanderbilt University  
+[walter.harris@vanderbilt.edu](mailto:walter.harris@vanderbilt.edu) | 615-961-9936
+
+info@nsf.gov
+- aoberai@usc.edu
+- [mihme@stanford.edu](mailto:mihme@stanford.edu)
+- 
+
