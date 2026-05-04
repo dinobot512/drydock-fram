@@ -186,7 +186,6 @@ TODO:
 - Refactor observations to generic observation class. There should be an observation container class that has: a hash map of Unique RAWS towers. Each is identified by a unique ID that should be related to real identifiers for RAWS. There should be a list of drone observations (a list? What makes most sense for the type? This should be )
 - Add terrain data loading
 
-
 Update Drone observations to include fire observations. 
 - Update path optimization algorithms
 
@@ -206,10 +205,11 @@ Tau?
 
 
 
-
 # Newest TODO (current work ons)
 
-
+- Thinning of live measurements vs on requestL:
+	- Should be ONE measurement per corrrelation domain. 
+- 
 
 
 
