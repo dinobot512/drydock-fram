@@ -197,7 +197,12 @@ Update Drone observations to include fire observations.
 
 
 Thought:
-I guess technuically increasing uncertainy is fair if our prior is bad? Is there some way to measure how this has still increased information overall, or no? Can we not compare to the actual state of the ground truth simulation instead? Like see how much closer we got to the ground truth?
+I guess technuically increasing uncertainy is fair if our prior is bad? Is there some way to measure how this has still increased information overall, or no? Can we not compare to the actual state of the ground truth simulation instead? Like see how much closer we got to the ground truth? 
+- Improved measures of informational advantage
+
+Tau? 
+- Should tau depend on Fuel type at each point? This means FMC requests tau based on the fuel type at that point, correct? 
+- 
 
 
 
