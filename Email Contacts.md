@@ -3,23 +3,23 @@
 - allana.funderburk@tn.gov
 - heather.slayton@tn.gov
 - TN.Agriculture@tn.gov
-- InvestorRelations@L3Harris.com
+- InvestorRelations@L3Harris.com (drone)
 - fire@riversideca.gov
 - LAFDrequest@lacity.org
 - jbanfield@cityofpasadena.net
 - information@sbcfire.org 
 - [SDFD@sandiego.gov](mailto:sdfd@sandiego.gov)
-- info@avinc.com
-- skydioforall@skydio.com
-- gulftronic.info@ga.com
-- privacy@kratosdefense.com
+- info@avinc.com (dorne)
+- skydioforall@skydio.com (drone)
+- gulftronic.info@ga.com (drone)
+- privacy@kratosdefense.com (drone)
 - john.c.ayers@Vanderbilt.Edu
 - husile.bai@Vanderbilt.Edu
 - ralf.bennartz@vanderbilt.edu
 - huidong.li@Vanderbilt.Edu
 - hiba.baroud@vanderbilt.edu
 - David.Kosson@Vanderbilt.Edu
-- ghiorso@ofm-research.org
+- ghiorso@ofm-research.org 
 - mgollner@berkeley.edu
 - sal2009ud@berkeley.edu
 - sstephens@berkeley.edu
