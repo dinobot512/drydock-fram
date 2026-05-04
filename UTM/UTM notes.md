@@ -42,3 +42,6 @@ https://www.nasa.gov/directorates/armd/aosp/utm/utm-nasa-technical-documents-pap
 
 ![[Pasted image 20260503112659.png]]
 
+
+Circumnavigating drone for small, high-uncertainty fires
+Send drones based on total uncertainty
