@@ -47,3 +47,20 @@ tau = {
 ```
 
 You can also let the GP learn τ from data by including it as a kernel hyperparameter and fitting to RAWS time series. RAWS stations report hourly, giving you direct empirical temporal autocorrelation for each variable at each station. This is a one-time calibration step — fit the temporal kernel to a few days of RAWS data, extract τ per variable, use those values in your operational GP.
+
+
+Drone 
+
+
+To do:
+- How are past fire measuremnts and current measurements integrated?  
+- From the ensemble, selecting 
+
+- Build in Dino's Fire Simulation code
+
+- Information field?? Right now it seems to just be a binary? It should be more granular and uncertain. 
+
+- Add real topography and initial prior data etc. Proper prior and ground truth loading. Better simulation candidates. 
+
+- Get an opus agent to check what the current code is implementing and outline what needs to be fixed or adjusted. Compare it to the v3 and see how different it is.  
+- Update path finding so single drones visit multiple points
