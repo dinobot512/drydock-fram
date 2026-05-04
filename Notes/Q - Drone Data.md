@@ -1,12 +1,3 @@
-Q1: What types of data (weather, imaging, etc.) do drones have the enhanced capability of measuring? - somewhat answered in [[Data Collection - Satellite vs Drone]]
-Q2: 
-Q3:
-
-What data
-How is it tracked
-What does this inform
-
-
 
 # Wind Speed + Direction
 
@@ -14,7 +5,29 @@ What does this inform
 1 - Gyroscopes and Accelerometers - wind speeds with errors ~0.22m/s and direction errors <7°
 2 - Anemometer - more accurate but more heavy 
 
-Best tactic is have drones hover above the fire, and deploy sensors 1-2m above ground. 
+Best tactic is have drones hover above the fire, and deploy sensors 1-2m above ground, to get the conditions in the epicenter. 
+
+
+# Fuel Moisture
+
+- measure using multispectral / IR cameras + apply an existing predictive model which maps reflectance -> fuel moisture
+- accuracy of estimates depends on how extensively the fuel types have been studied and calibrated
+
+
+# Other Relevant Data
+
+1 - Fire Perimeter Mapping - Using thermal (IR) sensors to identify the fire perimeter edge + identify embers traveling to start new fires. 
+	Also used for search & rescue, look for human/animal heat signatures
+
+2 - Gas sensors - detect presence of toxic gases, measure PM2.5 & PM10 - detect fires before they are visible
+
+3 - some drones use LiDAR which generate detailed 3D maps of the fuel locations and densities below canopies, where satellites cannot see
+
+
+
+
+
+
 
 
 
