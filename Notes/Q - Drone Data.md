@@ -1,7 +1,6 @@
 
 # Wind Speed + Direction
 
-
 1 - Gyroscopes and Accelerometers - wind speeds with errors ~0.22m/s and direction errors <7°
 2 - Anemometer - similar accuracy
 
