@@ -180,6 +180,8 @@ TODO:
 - Agent: Review Dino code Tigetter
 
 
+- Fix observation buffer and these bugs: [[Fixing Observation Wiring]]
+
 ### ONGOING:
 - Agent: Review Dino code Tigetter
 
@@ -193,4 +195,14 @@ Update Drone observations to include fire observations.
 ## Done:
 - Add wind direction
 - Add satellite data
-- 
+
+
+
+Thought:
+I guess technuically increasing uncertainy is fair if our prior is bad? Is there some way to measure how this has still increased information overall, or no? Can we not compare to the actual state of the ground truth simulation instead? Like see how much closer we got to the ground truth?
+
+
+
+
+
+
