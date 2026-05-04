@@ -54,10 +54,8 @@ Drone
 
 To do:
 - How are past fire measuremnts and current measurements integrated?  
-- From the ensemble, selecting 
-
-- Build in Dino's Fire Simulation code
-
+	  NO RAWS observations should be added to the initial GPP, must return the default prior variance.
+	  
 - Information field?? Right now it seems to just be a binary? It should be more granular and uncertain. 
 
 - Add real topography and initial prior data etc. Proper prior and ground truth loading. Better simulation candidates. 
