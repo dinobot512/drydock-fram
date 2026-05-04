@@ -13,7 +13,6 @@
 - skydioforall@skydio.com
 - gulftronic.info@ga.com
 - privacy@kratosdefense.com
-<<<<<<< HEAD
 - john.c.ayers@Vanderbilt.Edu
 - husile.bai@Vanderbilt.Edu
 - ralf.bennartz@vanderbilt.edu
@@ -33,8 +32,6 @@
 - afifi@ucla.edu
 - hamidulca@ucla.edu
 - jaraujo@mednet.ucla.edu
-- 
-=======
 
 Response needed in 24 hrs -- NASA-funded wildfire research, Vanderbilt University
 
