@@ -178,3 +178,14 @@ TODO:
 	- We need to plug into the real ElmFire simulation or our rewrite of it
 	- And plug into a GPU accelerated version 
 - Agent: Review Dino code Tigetter
+
+
+### ONGOING:
+- Agent: Review Dino code Tigetter
+
+- Refactor observations to generic observation class. There should be an observation container class that has: a hash map of Unique RAWS towers. Each is identified by a unique ID that should be related to real identifiers for RAWS. There should be a list of drone observations (a list? What makes most sense for the type? This should be )
+- Add terrain data loading
+
+
+## Done:
+- Add wind direction
