@@ -141,7 +141,7 @@ CycleReport:
 - Add selection result
 
 ## Config
-Remove time step (deprecate).
+Remove time step (deprecate) (is this True???)
 Remove Observation Noise
 Review GP hyper parameters
 Review EnKF
@@ -159,10 +159,22 @@ BIG QUESTIONS:
 
 
 
-
-
-
 TODO:
 - Add Windspeed 
 - Add terrain data loading
+
+
+- Refactor observations to generic observation class. There should be an observation container class that has: a hash map of Unique RAWS towers. Each is identified by a unique ID that should be related to real identifiers for RAWS. There should be a list of drone observations (a list? What makes most sense for the type? This should be )
+	- This class should be interacted from other classes. 
+	- It should store each observation type in a unique corresponding structure (e.g RAWs are hashmaps because new data will override old data);
+	- It should have functions such as: return decayed, or prune, which calls individual general functions for each observation within the data structure.
+	- Observation should be a generic dataClass. Differnet observation types extend this, but override the decay methods. Each container stores these observations. 
+	- Also methods to add new observations as soon as they arrive (tho this shiuld probably be locked when a prior creation is initiated within a cycle so that observations midway don't mess with it)
+	- What else should this class have? 
 - 
+- Plug in REAL FireSim 
+	- What exact data is passed to FireSim and out of it? 
+	- Right now we just have a basic simulation 
+	- We need to plug into the real ElmFire simulation or our rewrite of it
+	- And plug into a GPU accelerated version 
+- Agent: Review Dino code Tigetter
