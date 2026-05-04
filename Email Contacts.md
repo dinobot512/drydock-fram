@@ -100,7 +100,7 @@ We are developing software that optimizes the use of automated drones to survey 
 
 A few questions we'd love your perspective on:
 
-- Do our assumptions about fire spread modeling and uncertainty quantification align with how your simulations are structured?
+- What assumptions about fire spread modeling and uncertainty quantification factor into how your simulations are structured?
 - What data sources or environmental variables do you find most commonly missing or underweighted in wildfire prediction systems?
 - Does the idea of using drone observations to update a live fire model in real time sound feasible and useful to you?
 - What would your biggest technical concern be about a system like this?
@@ -153,7 +153,6 @@ We are developing software that optimizes the use of automated drones to survey 
 A few questions we'd love your thoughts on:
 
 - Does the technical approach sound rigorous and well-grounded to you?
-- What assumptions are we most likely getting wrong as students building in this space?
 - Does real-time drone-based sensing and fire growth prediction sound feasible and practically useful?
 - What would your biggest concern be about a system like this moving toward real deployment?
 
