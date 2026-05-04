@@ -211,3 +211,20 @@ info@nsf.gov
 - aoberai@usc.edu
 - [mihme@stanford.edu](mailto:mihme@stanford.edu)
 - 
+
+Dear Dr. Zohdi,
+
+Thank you for getting back to us so quickly and for sharing your work! We have already started going through it and can see how directly it connects to what we are building.
+
+If you have a few minutes, we would love your perspective on the following:
+- In your experience, where does the biggest breakdown tend to happen in implementing automated drone networks: modeling, communication, or operational integration?
+- Has real-time drone-based sensing to update a live fire model been explored seriously in practice, or does most work in this space remain simulation-based?
+- Given how deeply you have thought about what drones are capable of, what is the one capability you would most want to see a system like ours leverage?
+
+We appreciate your time more than you know.
+
+Best regards,
+Rutland Harris
+Jerald Arden Freeman
+Vanderbilt University
+walter.harris@vanderbilt.edu | 615-961-9936
