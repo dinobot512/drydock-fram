@@ -3,7 +3,7 @@
 
 
 1 - Gyroscopes and Accelerometers - wind speeds with errors ~0.22m/s and direction errors <7°
-2 - Anemometer - more accurate but more heavy 
+2 - Anemometer - similar accuracy
 
 Best tactic is have drones hover above the fire, and deploy sensors 1-2m above ground, to get the conditions in the epicenter. 
 
@@ -12,6 +12,7 @@ Best tactic is have drones hover above the fire, and deploy sensors 1-2m above g
 
 - measure using multispectral / IR cameras + apply an existing predictive model which maps reflectance -> fuel moisture
 - accuracy of estimates depends on how extensively the fuel types have been studied and calibrated
+- ~5% RMSE (root mean square error)
 
 
 # Other Relevant Data
