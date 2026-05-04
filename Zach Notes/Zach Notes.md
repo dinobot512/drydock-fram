@@ -62,3 +62,133 @@ To do:
 
 - Get an opus agent to check what the current code is implementing and outline what needs to be fixed or adjusted. Compare it to the v3 and see how different it is.  
 - Update path finding so single drones visit multiple points
+
+
+ The main entry point is scripts/run_sim.py. It wires together all the components:                
+
+    - **angrybird/simulation/scenarios.py** — terrain + ground truth factories (e.g. hilly_heterogeneous)                                    
+
+    - **scripts/demo_sim.py** — SimpleFire (the fire engine) and make_gp helper                                                              
+
+    - **angrybird/gp.py** — IGNISGPPrior (FMC + wind estimation)                                                                             
+
+    - **angrybird/orchestrator.py** — IGNISOrchestrator (sequences the IGNIS cycle: GP → ensemble → info field → select → assimilate)
+
+    - **angrybird/simulation/runner.py** — SimulationRunner (the clock loop: moves drones, collects observations, triggers IGNIS cycles,
+
+    renders frames)
+
+    Run it with:
+
+    python scripts/run_sim.py --scenario hilly_heterogeneous --hours 2
+
+
+
+
+Missing:
+- Wind pertubation 
+- Current fire? 
+	- Estimation 
+
+
+# To do:
+- 
+
+
+
+## Data types:
+
+- Where is terrain data recieved from? 
+
+GPPrior:
+- How does current fire position itnerface with the GP Prior? 
+
+**IMPORTANT**: Add wind direction to:
+- Ensemble result
+- Information field (direction should have uncertainty and sensitivity)
+
+Add generic Observation data class:
+- Specifics for different types
+- RAWS, drone, Sat, what else...?
+- Add RAWS replacement frequency...? 
+	- Just there should be one RAWS data, and 
+	- Hashmap of RAWS? If exists just replace old one, otherwise add new RAWS. 
+
+This includes:
+- Hashmap of Unique RAWS towers
+- List of drone observations (prune upon every merge / decay application) 
+- 
+
+Drone Observation:
+- time
+- types of FMC or no? (types just effect how FMC propagates?).
+
+Mission request:
+- Useful or unused? 
+DronePlan:
+- Unused
+- Implement pathfinding
+- Combine with above?
+
+Strategy Evaluation:
+- Move to subclass
+
+CycleReport: 
+- Add a GPPrior
+- Add information field
+- Add selection result
+
+## Config
+Remove time step (deprecate) (is this True???)
+Remove Observation Noise
+Review GP hyper parameters
+Review EnKF
+Review / implement replan triggers 
+
+Raws frequency: 
+- Only need to add if Hash Map with live update isn't used.
+- Satellite paremeters? 
+
+BIG QUESTIONS:
+- What are all other modalities of observation?
+	- E.g Satellite, others?? 
+	- Weather Forecast
+	- Specific limitations or confinements of observation types and specific data 
+
+
+
+TODO:
+- Add Windspeed 
+- Add terrain data loading
+
+
+- Refactor observations to generic observation class. There should be an observation container class that has: a hash map of Unique RAWS towers. Each is identified by a unique ID that should be related to real identifiers for RAWS. There should be a list of drone observations (a list? What makes most sense for the type? This should be )
+	- This class should be interacted from other classes. 
+	- It should store each observation type in a unique corresponding structure (e.g RAWs are hashmaps because new data will override old data);
+	- It should have functions such as: return decayed, or prune, which calls individual general functions for each observation within the data structure.
+	- Observation should be a generic dataClass. Differnet observation types extend this, but override the decay methods. Each container stores these observations. 
+	- Also methods to add new observations as soon as they arrive (tho this shiuld probably be locked when a prior creation is initiated within a cycle so that observations midway don't mess with it)
+	- What else should this class have? 
+- 
+- Plug in REAL FireSim 
+	- What exact data is passed to FireSim and out of it? 
+	- Right now we just have a basic simulation 
+	- We need to plug into the real ElmFire simulation or our rewrite of it
+	- And plug into a GPU accelerated version 
+- Agent: Review Dino code Tigetter
+
+
+### ONGOING:
+- Agent: Review Dino code Tigetter
+
+- Refactor observations to generic observation class. There should be an observation container class that has: a hash map of Unique RAWS towers. Each is identified by a unique ID that should be related to real identifiers for RAWS. There should be a list of drone observations (a list? What makes most sense for the type? This should be )
+- Add terrain data loading
+
+
+Update Drone observations to include fire observations. 
+- Update path optimization algorithms
+
+## Done:
+- Add wind direction
+- Add satellite data
+- 
