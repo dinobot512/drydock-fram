@@ -187,5 +187,10 @@ TODO:
 - Add terrain data loading
 
 
+Update Drone observations to include fire observations. 
+- Update path optimization algorithms
+
 ## Done:
 - Add wind direction
+- Add satellite data
+- 
