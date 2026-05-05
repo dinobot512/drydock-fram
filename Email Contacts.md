@@ -20,6 +20,8 @@
 - huidong.li@Vanderbilt.Edu-
 - hiba.baroud@vanderbilt.edu-
 - David.Kosson@Vanderbilt.Edu-
+- lin.meng@Vanderbilt.Edu
+- hussam.mahmoud@Vanderbilt.Edu
 - ghiorso@ofm-research.org 
 - mgollner@berkeley.edu
 - sal2009ud@berkeley.edu-
