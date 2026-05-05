@@ -186,7 +186,6 @@ TODO:
 - Refactor observations to generic observation class. There should be an observation container class that has: a hash map of Unique RAWS towers. Each is identified by a unique ID that should be related to real identifiers for RAWS. There should be a list of drone observations (a list? What makes most sense for the type? This should be )
 - Add terrain data loading
 
-
 Update Drone observations to include fire observations. 
 - Update path optimization algorithms
 
@@ -194,14 +193,22 @@ Update Drone observations to include fire observations.
 - Add wind direction
 - Add satellite data
 
-
-
 Thought:
 I guess technuically increasing uncertainy is fair if our prior is bad? Is there some way to measure how this has still increased information overall, or no? Can we not compare to the actual state of the ground truth simulation instead? Like see how much closer we got to the ground truth? 
 - Improved measures of informational advantage
 
 Tau? 
 - Should tau depend on Fuel type at each point? This means FMC requests tau based on the fuel type at that point, correct? 
+
+
+
+
+
+
+# Newest TODO (current work ons)
+
+- Thinning of live measurements vs on requestL:
+	- Should be ONE measurement per corrrelation domain. 
 - 
 
 
