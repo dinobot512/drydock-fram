@@ -216,3 +216,20 @@ Tau?
 
 
 
+Could we add more Quantum anywhere? Unitary operations??
+Outdated spec updates
+
+Multiple Fuel Types
+
+- Drones updating paths in real time
+- Simulatiuon showing drone paths
+
+- Simulation drone info updates
+
+- Optimizing NUMBER of drones per point
+
+
+- Better measure of information 
+
+
+- 
