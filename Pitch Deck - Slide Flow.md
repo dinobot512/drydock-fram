@@ -24,17 +24,18 @@
 
 ## Slide 3 — THE SCALE
 - [ ] Title: "A National Crisis with a California Epicenter"
-- [ ] Ranked bar chart or table, top 8 states by avg annual wildfire damage:
+- [ ] Ranked bar chart or table, top 8 states by avg annual wildfire damage (economic):
 	1. California
-	2. Florida 
-	3. Texas
-	4. Arizona
-	5. Utah
+	2. Texas
+	3. Arizona
+	4. Colorado
+	5. Washington
 	6. Oregon
-	7. Colorado
-	8. Washington
+	7. Idaho
+	8. New Mexico
+	All based on FEMA national risk index: https://resilience-fema.hub.arcgis.com/datasets/national-risk-index-states-expected-annual-loss/about?utm_source=chatgpt.com
 - [ ] US heat map of wildfire risk overlay
-- [ ] Callout stat: "These 8 states account for X% of total US wildfire damage annually"
+- [ ] Callout stat: "These 8 states account for X% of total US wildfire damage annually" - 8 states are ~80% of all damage w cali ~48% . data from FEMA Expected Annual loss
 - [ ] **STILL NEEDED: source and exact percentage for the callout stat**
 
 ---
