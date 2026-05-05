@@ -202,6 +202,9 @@ Tau?
 
 
 
+Refactor for hardware:
+- should be MPS or GPU agnostic
+
 
 
 
@@ -212,8 +215,11 @@ Tau?
 - 
 
 
+python run.py \ --device mps \ --drones 2 \ --members 50 \ --hours 8 \ --ignition-cells 50 \ --crop-factor 3 \ --out out/landfire_50cell_8h_improved \ --horizon-min 240 \ --selector correlation_path
 
 
+
+Information value seems to peak at 120 hour forecasts. 
 
 
 Could we add more Quantum anywhere? Unitary operations??
@@ -232,4 +238,22 @@ Multiple Fuel Types
 - Better measure of information 
 
 
-- 
+- Build in fire ingition start point estimations, that adjust with fire observations
+- Add fire observations to drones and also to the satellites. 
+- Add REAL LA data. 
+- Wire in real weather + initial prior data to simulation and actually updating
+
+
+Real data added by DINO:
+- The simulation should be able to be connected to real past data streams. 
+- Real data streams, historical or now. This should be a separate client managing incoming data. 
+
+
+
+
+Display:
+- Rendering on NEW CYCLE events is wrong. Should process data before rending but is displayng unfinished data
+
+
+
+- Should calcualte full arrival time and sample from this to show current fire position as it updates.  
