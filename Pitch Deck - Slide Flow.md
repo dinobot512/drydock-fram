@@ -26,7 +26,7 @@
 - [ ] Title: "A National Crisis with a California Epicenter"
 - [ ] Ranked bar chart or table, top 8 states by avg annual wildfire damage:
 	1. California
-	2. Florida
+	2. Florida 
 	3. Texas
 	4. Arizona
 	5. Utah
@@ -42,10 +42,10 @@
 ## Slide 4 — THE OPPORTUNITY
 - [ ] Title: "This Is Not a Stable Problem"
 - [ ] Two hero stats:
-	- [ ] +5,350% — cost of losses 2015 to 2025
-	- [ ] +700% — acres burned 2015 to 2025
-- [ ] **STILL NEEDED: source citations for both growth figures**
-- [ ] Dual-axis line graph showing both curves 2015 to 2025
+	- [ ] +5,350% — cost of losses 2015 to 2025 - 2015: https://www.sacbee.com/news/california/fires/article39167664.html; 2025: https://www.undrr.org/news/invisible-costs-wildfire-disasters-2025#:~:text=The%202025%20Los%20Angeles%20wildfires,far%20exceeding%20insured%20losses%20alone.
+	- [ ] +285% — acres burned 2019 to 2024 -- both of these are CALI ONLY -- 2024: https://34c031f8-c9fd-4018-8c5a-4159cdff6b0d-cdn-endpoint.azureedge.net/-/media/calfire-website/our-impact/fire-statistics/2024_redbook_final.pdf?hash=B582200D6531921DC40B3AB1976D1180&rev=d0681f53a38b40dc968658ab8852a920&utm_source=chatgpt.com; 2019: https://www.fire.ca.gov/incidents/2019/?utm_source=chatgpt.com
+- [ ] **STILL NEEDED: source citations for both growth figures** - 
+- [ ] Dual-axis line graph showing both curves 2015 to 2025 - honestly its not as steady a trend as you might expect, mayb not good to include
 - [ ] Three bullets:
 	- [ ] FAA drone regulation now mature (BVLOS frameworks exist)
 	- [ ] RAWS stations deployed across western US at scale
