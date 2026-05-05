@@ -63,7 +63,7 @@ LendingTree analysis of NOAA NCEI Billion-Dollar Disaster data, 1980–2024. Haw
 - [ ] Bio stat: 200+ publications, 6 patents, drone-specific UAV research since 2017
 - [ ] **STILL NEEDED: pull quote from Dr. Zohdi email**
 - [ ] **STILL NEEDED: 1 to 2 additional quotes from fire departments or other professors** - Check [[QUOTES]]
-- [ ] Large callout: 40+ contacts email list is in [[QUOTES]]
+- [ ] Large callout: 40+ contacts email list is in [[Email Contacts]]
 - [ ] Subtitle: "Drone companies · University researchers · Fire departments · Wildfire mapping organizations"
 - [ ] Optional: logo grid of orgs contacted
 
