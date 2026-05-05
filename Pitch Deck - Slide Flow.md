@@ -37,6 +37,7 @@
 - [ ] US heat map of wildfire risk overlay
 - [ ] Callout stat: "These 8 states account for X% of total US wildfire damage annually" - 8 states are ~80% of all damage w cali ~48% . data from FEMA Expected Annual loss
 - [ ] **STILL NEEDED: source and exact percentage for the callout stat**
+LendingTree analysis of NOAA NCEI Billion-Dollar Disaster data, 1980–2024. Hawaii figure: US Department of Commerce, 2023.
 
 ---
 
