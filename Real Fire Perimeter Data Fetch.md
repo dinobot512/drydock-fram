@@ -12,10 +12,10 @@ this should be all the data needed
 
 
 
-
-Additionally,
+---
+Additionally, (if its helpful)
 Drop the CSV in project folder and run the following script:
-it will output a .geojson file & infogrpahic png (if its helpful)
+it will output a .geojson file & infogrpahic png 
 # Palisades.py
 
 (just copy-paste everything below)
