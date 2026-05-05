@@ -25,11 +25,11 @@
 ## Slide 3 — THE SCALE
 - [ ] Title: "A National Crisis with a California Epicenter"
 - [ ] Ranked bar chart or table, top 8 states by avg annual wildfire damage (economic):
-	1. California - 3.5
-	2. Texas - 0.6
-	3. Arizona - 0.5
-	4. Colorado - 0.4
-	5. Washington - 0.3
+	1. California - 48%
+	2. Texas - 8.2%
+	3. Arizona - 6.8%
+	4. Colorado - 5.5%
+	5. Washington - 4.1%
 	6. Oregon
 	7. Idaho
 	8. New Mexico
