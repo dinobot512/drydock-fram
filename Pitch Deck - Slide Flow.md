@@ -15,10 +15,10 @@
 - [ ] Palisades Fire blurb: "Spontaneous ignition in the Santa Monica Mountains. Fueled by ferocious Santa Ana winds, Pacific Palisades, Topanga, and Malibu were gone in hours."
 - [ ] Eaton Fire blurb: "Erupted simultaneously near Altadena. Thousands of families evacuated overnight. More homes destroyed than the Palisades."
 - [ ] Four callout numbers:
-	- [ ] 37,469 — Acres Burned
-	- [ ] 16,255 — Homes Destroyed
+	- [ ] 37,469 — Acres Burned - over 40000 https://laedc.org/wildfirereport/
+	- [ ] 16,255 — Homes Destroyed - i have this figure relating to structures destroyed but not sure if that important , no figure on homes
 	- [ ] 31 — Lives Lost
-	- [ ] $135B+ — Economic Loss
+	- [ ] $135B+ — Economic Loss - total economic damage between 250 and 275 billion https://www.undrr.org/news/invisible-costs-wildfire-disasters-2025#:~:text=The%202025%20Los%20Angeles%20wildfires,homes%20and%20workplaces%20were%20destroyed.
 
 ---
 
