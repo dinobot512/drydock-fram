@@ -25,17 +25,17 @@
 ## Slide 3 — THE SCALE
 - [ ] Title: "A National Crisis with a California Epicenter"
 - [ ] Ranked bar chart or table, top 8 states by avg annual wildfire damage (economic):
-	1. California
-	2. Texas
-	3. Arizona
-	4. Colorado
-	5. Washington
+	1. California - 3.5
+	2. Texas - 0.6
+	3. Arizona - 0.5
+	4. Colorado - 0.4
+	5. Washington - 0.3
 	6. Oregon
 	7. Idaho
 	8. New Mexico
 	All based on FEMA national risk index: https://resilience-fema.hub.arcgis.com/datasets/national-risk-index-states-expected-annual-loss/about?utm_source=chatgpt.com
 - [ ] US heat map of wildfire risk overlay
-- [ ] Callout stat: "These 8 states account for X% of total US wildfire damage annually" - 8 states are ~80% of all damage w cali ~48% . data from FEMA Expected Annual loss
+- [ ] Callout stat: "These 5 states account for X% of total US wildfire damage annually" - 5 states are ~73% of all damage w cali ~48% . data from FEMA Expected Annual loss
 - [ ] **STILL NEEDED: source and exact percentage for the callout stat**
 
 ---
@@ -61,8 +61,8 @@
 - [ ] Title card: Associate Dean for Research, UC Berkeley College of Engineering
 - [ ] Bio stat: 200+ publications, 6 patents, drone-specific UAV research since 2017
 - [ ] **STILL NEEDED: pull quote from Dr. Zohdi email**
-- [ ] **STILL NEEDED: 1 to 2 additional quotes from fire departments or other professors**
-- [ ] Large callout: 40+ contacts
+- [ ] **STILL NEEDED: 1 to 2 additional quotes from fire departments or other professors** - Check [[QUOTES]]
+- [ ] Large callout: 40+ contacts email list is in [[QUOTES]]
 - [ ] Subtitle: "Drone companies · University researchers · Fire departments · Wildfire mapping organizations"
 - [ ] Optional: logo grid of orgs contacted
 
