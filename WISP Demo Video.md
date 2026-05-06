@@ -1,8 +1,24 @@
-
+![[Screenshot 2026-05-05 at 10.55.13 PM.png]]
 
 Start: 
 The technical problem 
 - Is not the models 
+
+
+
+Wildfires. 
+	- Just last year, they cost the US $500 billion.
+	- And is only going to get worse, with climate change. 
+
+- So what's up with wildfires? why can't we predict them? 
+
+
+Currently, 
+
+That's why we built WISP:
+- A recursively self-improving, GPU-accelerated, informational theoretically optimal, bayesian drone network. 
+- In other words, 
+
 
 
 - Wildfires?
@@ -75,10 +91,8 @@ After doing this, we made it GPU accelerated:
 
 
 Other innovations: 
-
-
-
-
+- 
+- 
 
 
 
@@ -87,6 +101,8 @@ Key Innovations:
 - SOTA 
 - Gaussian process regression from geostatistics
 - Predictive
-
 - Bayesian optimization from information theory
+
+
+Outcomes:
 - 
