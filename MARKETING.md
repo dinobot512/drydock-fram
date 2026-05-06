@@ -1,1 +1,3 @@
 Only current organization with infrastructure to take full advantage of technology is NASA/FAA. However, software (fire prediction model) can be outsourced to anyone with necessary data collection capabilities. Additionally, NASA ACREO system depends on PAMS system which can be replicated in other drone systems. Thus, product could be commercially marketable, but requires existing infrastructure. Likely purchasers: foreign governments, insurance companies evaluating fire risk, 
+
+
